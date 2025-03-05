@@ -1,0 +1,91 @@
+# Crear una matriz 3D para almacenar datos de temperaturas
+# Primera dimensión: Ciudades (3 ciudades)
+# Segunda dimensión: Días de la semana (7 días)
+# Tercera dimensión: Semanas (4 semanas)
+
+temperaturas = [
+    [   # Ciudad A
+        [   # Semana 1
+            {"dia": "Lunes", "temperatura": 72},
+            {"dia": "Martes", "temperatura": 74},
+            {"dia": "Miércoles", "temperatura": 76},
+            {"dia": "Jueves", "temperatura": 73},
+            {"dia": "Viernes", "temperatura": 78},
+            {"dia": "Sábado", "temperatura": 80},
+            {"dia": "Domingo", "temperatura": 85}
+        ],
+        [   # Semana 2
+            {"dia": "Lunes", "temperatura": 70},
+            {"dia": "Martes", "temperatura": 73},
+            {"dia": "Miércoles", "temperatura": 77},
+            {"dia": "Jueves", "temperatura": 75},
+            {"dia": "Viernes", "temperatura": 79},
+            {"dia": "Sábado", "temperatura": 82},
+            {"dia": "Domingo", "temperatura": 86}
+        ],
+        [   # Semana 3
+            {"dia": "Lunes", "temperatura": 71},
+            {"dia": "Martes", "temperatura": 74},
+            {"dia": "Miércoles", "temperatura": 78},
+            {"dia": "Jueves", "temperatura": 76},
+            {"dia": "Viernes", "temperatura": 80},
+            {"dia": "Sábado", "temperatura": 83},
+            {"dia": "Domingo", "temperatura": 87}
+        ],
+        [   # Semana 4
+            {"dia": "Lunes", "temperatura": 69},
+            {"dia": "Martes", "temperatura": 72},
+            {"dia": "Miércoles", "temperatura": 75},
+            {"dia": "Jueves", "temperatura": 73},
+            {"dia": "Viernes", "temperatura": 78},
+            {"dia": "Sábado", "temperatura": 81},
+            {"dia": "Domingo", "temperatura": 85}
+        ]
+    ],
+    [   # Ciudad B
+        [   # Semana 1
+            {"dia": "Lunes", "temperatura": 60},
+            {"dia": "Martes", "temperatura": 62},
+            {"dia": "Miércoles", "temperatura": 65},
+            {"dia": "Jueves", "temperatura": 67},
+            {"dia": "Viernes", "temperatura": 70},
+            {"dia": "Sábado", "temperatura": 72},
+            {"dia": "Domingo", "temperatura": 75}
+        ],
+        [   # Semana 2
+            {"dia": "Lunes", "temperatura": 61},
+            {"dia": "Martes", "temperatura": 64},
+            {"dia": "Miércoles", "temperatura": 67},
+            {"dia": "Jueves", "temperatura": 69},
+            {"dia": "Viernes", "temperatura": 72},
+            {"dia": "Sábado", "temperatura": 74},
+            {"dia": "Domingo", "temperatura": 78}
+        ],
+        [   # Semana 3
+            {"dia": "Lunes", "temperatura": 62},
+            {"dia": "Martes", "temperatura": 65},
+            {"dia": "Miércoles", "temperatura": 68},
+            {"dia": "Jueves", "temperatura": 70},
+            {"dia": "Viernes", "temperatura": 73},
+            {"dia": "Sábado", "temperatura": 75},
+            {"dia": "Domingo", "temperatura": 79}
+        ],
+        [   # Semana 4
+            {"dia": "Lunes", "temperatura": 63},
+            {"dia": "Martes", "temperatura": 66},
+            {"dia": "Miércoles", "temperatura": 69},
+            {"dia": "Jueves", "temperatura": 71},
+            {"dia": "Viernes", "temperatura": 74},
+            {"dia": "Sábado", "temperatura": 76},
+            {"dia": "Domingo", "temperatura": 80}
+        ]
+    ]
+]
+
+# Calcular el promedio de temperaturas para cada ciudad y semana
+ciudades = ["Ciudad A", "Ciudad B"]
+for ciudad_idx, ciudad in enumerate(temperaturas):
+    for semana_idx, semana in enumerate(ciudad):
+        total_temp = sum([dia["temperatura"] for dia in semana])
+        promedio = total_temp / len(semana)
+        print(f"Promedio de temperaturas en {ciudades[ciudad_idx]}, Semana {semana_idx + 1}: {promedio:.2f}°C")
