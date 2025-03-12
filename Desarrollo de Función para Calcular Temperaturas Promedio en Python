@@ -1,0 +1,117 @@
+def calcular_promedio_ciudades(temperaturas, nombres_ciudades):
+    """
+    Calcula la temperatura promedio de cada ciudad durante todo el período de tiempo.
+
+    Parámetros:
+    temperaturas (list): Lista tridimensional con datos de temperaturas estructurados por ciudades, semanas y días.
+    nombres_ciudades (list): Lista con los nombres de las ciudades en el mismo orden que la matriz de temperaturas.
+
+    Retorna:
+    dict: Diccionario con el nombre de cada ciudad y su temperatura promedio total.
+    """
+    promedios_ciudades = {}
+
+    for ciudad_idx, ciudad in enumerate(temperaturas):
+        total_temp = 0
+        total_dias = 0
+
+        for semana in ciudad:
+            for dia in semana:
+                total_temp += dia["temperatura"]
+                total_dias += 1
+
+        promedio = total_temp / total_dias if total_dias > 0 else 0
+        promedios_ciudades[nombres_ciudades[ciudad_idx]] = round(promedio, 2)
+
+    return promedios_ciudades
+
+
+# Datos de temperaturas
+temperaturas = [
+    [   # Ciudad A
+        [   # Semana 1
+            {"dia": "Lunes", "temperatura": 72},
+            {"dia": "Martes", "temperatura": 74},
+            {"dia": "Miércoles", "temperatura": 76},
+            {"dia": "Jueves", "temperatura": 73},
+            {"dia": "Viernes", "temperatura": 78},
+            {"dia": "Sábado", "temperatura": 80},
+            {"dia": "Domingo", "temperatura": 85}
+        ],
+        [   # Semana 2
+            {"dia": "Lunes", "temperatura": 70},
+            {"dia": "Martes", "temperatura": 73},
+            {"dia": "Miércoles", "temperatura": 77},
+            {"dia": "Jueves", "temperatura": 75},
+            {"dia": "Viernes", "temperatura": 79},
+            {"dia": "Sábado", "temperatura": 82},
+            {"dia": "Domingo", "temperatura": 86}
+        ],
+        [   # Semana 3
+            {"dia": "Lunes", "temperatura": 71},
+            {"dia": "Martes", "temperatura": 74},
+            {"dia": "Miércoles", "temperatura": 78},
+            {"dia": "Jueves", "temperatura": 76},
+            {"dia": "Viernes", "temperatura": 80},
+            {"dia": "Sábado", "temperatura": 83},
+            {"dia": "Domingo", "temperatura": 87}
+        ],
+        [   # Semana 4
+            {"dia": "Lunes", "temperatura": 69},
+            {"dia": "Martes", "temperatura": 72},
+            {"dia": "Miércoles", "temperatura": 75},
+            {"dia": "Jueves", "temperatura": 73},
+            {"dia": "Viernes", "temperatura": 78},
+            {"dia": "Sábado", "temperatura": 81},
+            {"dia": "Domingo", "temperatura": 85}
+        ]
+    ],
+    [   # Ciudad B
+        [   # Semana 1
+            {"dia": "Lunes", "temperatura": 60},
+            {"dia": "Martes", "temperatura": 62},
+            {"dia": "Miércoles", "temperatura": 65},
+            {"dia": "Jueves", "temperatura": 67},
+            {"dia": "Viernes", "temperatura": 70},
+            {"dia": "Sábado", "temperatura": 72},
+            {"dia": "Domingo", "temperatura": 75}
+        ],
+        [   # Semana 2
+            {"dia": "Lunes", "temperatura": 61},
+            {"dia": "Martes", "temperatura": 64},
+            {"dia": "Miércoles", "temperatura": 67},
+            {"dia": "Jueves", "temperatura": 69},
+            {"dia": "Viernes", "temperatura": 72},
+            {"dia": "Sábado", "temperatura": 74},
+            {"dia": "Domingo", "temperatura": 78}
+        ],
+        [   # Semana 3
+            {"dia": "Lunes", "temperatura": 62},
+            {"dia": "Martes", "temperatura": 65},
+            {"dia": "Miércoles", "temperatura": 68},
+            {"dia": "Jueves", "temperatura": 70},
+            {"dia": "Viernes", "temperatura": 73},
+            {"dia": "Sábado", "temperatura": 75},
+            {"dia": "Domingo", "temperatura": 79}
+        ],
+        [   # Semana 4
+            {"dia": "Lunes", "temperatura": 63},
+            {"dia": "Martes", "temperatura": 66},
+            {"dia": "Miércoles", "temperatura": 69},
+            {"dia": "Jueves", "temperatura": 71},
+            {"dia": "Viernes", "temperatura": 74},
+            {"dia": "Sábado", "temperatura": 76},
+            {"dia": "Domingo", "temperatura": 80}
+        ]
+    ]
+]
+
+# Nombres de las ciudades
+nombres_ciudades = ["Ciudad A", "Ciudad B"]
+
+# Calcular promedios
+promedios = calcular_promedio_ciudades(temperaturas, nombres_ciudades)
+
+# Mostrar resultados
+for ciudad, promedio in promedios.items():
+    print(f"Temperatura promedio en {ciudad}: {promedio}°C")
