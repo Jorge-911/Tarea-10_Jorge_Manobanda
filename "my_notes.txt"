@@ -1,0 +1,21 @@
+# Escritura de Archivo de Texto
+
+# Abrimos (o creamos) el archivo en modo escritura ('w')
+with open("my_notes.txt", "w") as file:
+    # Escribimos tres líneas de notas personales
+    file.write("Hoy aprendí a manejar archivos en Python.\n")
+    file.write("Los métodos write() y readline() son muy útiles.\n")
+    file.write("Recordar siempre cerrar el archivo después de usarlo.\n")
+
+# Lectura de Archivo de Texto
+
+# Abrimos el archivo en modo lectura ('r')
+with open("my_notes.txt", "r") as file:
+    # Leemos línea por línea usando un bucle y readline()
+    line = file.readline()
+    while line:
+        print(line.strip())  # Mostramos la línea sin el salto de línea final
+        line = file.readline()
+
+# El uso de 'with open(...) as ...' asegura que el archivo se cierre automáticamente
+# después de salir del bloque, por lo que no es necesario cerrarlo manualmente con close()
